@@ -1,58 +1,62 @@
 package online.flyingfish.api.model;
 
-import java.sql.Date;
+import javax.xml.crypto.Data;
+import java.security.PrivateKey;
 
 public class Employee {
-    private int id;
-
-    private String empNumber;
-
-    private int companyId;
-
+    private int userId;
+    private String userName;
+    private String userSex;
+    private String empNo;
+    private int compId;
     private int deptId;
+    private String userBirthplace;
+    private Data userHiredate;
+    private String userPosition;
+    private int userLevel;
+    private String userEmail;
+    private String userPhone;
+    private int userRole;
+    private int userStatus;
 
-    private String name;
-
-    private String birthPlace;
-
-    private Date hireDate;
-
-    private String position;
-
-    private int level;
-
-    private String email;
-
-    private String phone;
-
-    private int role;
-
-    private int status;
-
-    private int sex;
-
-    public int getId() {
-        return id;
+    public int getUserId() {
+        return userId;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 
-    public String getEmpNumber() {
-        return empNumber;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setEmpNumber(String empNumber) {
-        this.empNumber = empNumber;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
-    public int getCompanyId() {
-        return companyId;
+    public String getUserSex() {
+        return userSex;
     }
 
-    public void setCompanyId(int companyId) {
-        this.companyId = companyId;
+    public void setUserSex(String userSex) {
+        this.userSex = userSex;
+    }
+
+    public String getEmpNo() {
+        return empNo;
+    }
+
+    public void setEmpNo(String empNo) {
+        this.empNo = empNo;
+    }
+
+    public int getCompId() {
+        return compId;
+    }
+
+    public void setCompId(int compId) {
+        this.compId = compId;
     }
 
     public int getDeptId() {
@@ -63,83 +67,67 @@ public class Employee {
         this.deptId = deptId;
     }
 
-    public String getName() {
-        return name;
+    public String getUserBirthplace() {
+        return userBirthplace;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUserBirthplace(String userBirthplace) {
+        this.userBirthplace = userBirthplace;
     }
 
-    public String getBirthPlace() {
-        return birthPlace;
+    public Data getUserHiredate() {
+        return userHiredate;
     }
 
-    public void setBirthPlace(String birthPlace) {
-        this.birthPlace = birthPlace;
+    public void setUserHiredate(Data userHiredate) {
+        this.userHiredate = userHiredate;
     }
 
-    public Date getHireDate() {
-        return hireDate;
+    public String getUserPosition() {
+        return userPosition;
     }
 
-    public void setHireDate(Date hireDate) {
-        this.hireDate = hireDate;
+    public void setUserPosition(String userPosition) {
+        this.userPosition = userPosition;
     }
 
-    public String getPosition() {
-        return position;
+    public int getUserLevel() {
+        return userLevel;
     }
 
-    public void setPosition(String position) {
-        this.position = position;
+    public void setUserLevel(int userLevel) {
+        this.userLevel = userLevel;
     }
 
-    public int getLevel() {
-        return level;
+    public String getUserEmail() {
+        return userEmail;
     }
 
-    public void setLevel(int level) {
-        this.level = level;
+    public void setUserEmail(String userEmail) {
+        this.userEmail = userEmail;
     }
 
-    public String getEmail() {
-        return email;
+    public String getUserPhone() {
+        return userPhone;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setUserPhone(String userPhone) {
+        this.userPhone = userPhone;
     }
 
-    public String getPhone() {
-        return phone;
+    public int getUserRole() {
+        return userRole;
     }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
+    public void setUserRole(int userRole) {
+        this.userRole = userRole;
     }
 
-    public int getRole() {
-        return role;
+    public int getUserStatus() {
+        return userStatus;
     }
 
-    public void setRole(int role) {
-        this.role = role;
-    }
-
-    public int getStatus() {
-        return status;
-    }
-
-    public void setStatus(int status) {
-        this.status = status;
-    }
-
-    public int getSex() {
-        return sex;
-    }
-
-    public void setSex(int sex) {
-        this.sex = sex;
+    public void setUserStatus(int userStatus) {
+        this.userStatus = userStatus;
     }
 }

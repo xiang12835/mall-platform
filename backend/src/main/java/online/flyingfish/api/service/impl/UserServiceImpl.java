@@ -3,6 +3,7 @@ package online.flyingfish.api.service.impl;
 import java.util.Collections;
 import java.util.List;
 
+import online.flyingfish.api.model.Book;
 import online.flyingfish.api.model.User;
 import online.flyingfish.api.mapper.UserMapper;
 import online.flyingfish.api.service.UserService;
@@ -16,9 +17,7 @@ public class UserServiceImpl implements UserService{
     private UserMapper userMapper;
 
     @Override
-    public void addUser(User user) {
-        userMapper.addUser(user);
-    }
+    public void addUser(User user) { userMapper.addUser(user); }
 
     @Override
     public void delUserById(int no) {
@@ -43,10 +42,4 @@ public class UserServiceImpl implements UserService{
 
         return userList;
     }
-
-    @Override
-    public String getUserName(int id) {
-        return userMapper.getUserName(id);
-    }
-
 }

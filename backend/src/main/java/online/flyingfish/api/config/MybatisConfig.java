@@ -1,11 +1,8 @@
 package online.flyingfish.api.config;
 
-import com.github.pagehelper.PageHelper;
 import org.mybatis.spring.boot.autoconfigure.ConfigurationCustomizer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-
-import java.util.Properties;
 
 /**
  * mybatis 注解版
@@ -24,19 +21,5 @@ public class MybatisConfig {
                 configuration.setMapUnderscoreToCamelCase(true);
             }
         };
-    }
-
-    @Bean
-    public PageHelper pageHelper() {
-        System.out.println("MyBatisConfiguration.pageHelper()");
-        PageHelper pageHelper = new PageHelper();
-        Properties p = new Properties();
-        p.setProperty("helperDialect", "postgresql");
-        p.setProperty("offsetAsPageNum", "true");
-        p.setProperty("rowBoundsWithCount", "true");
-        p.setProperty("pageSizeZero", "true");
-        p.setProperty("reasonable", "true");
-        pageHelper.setProperties(p);
-        return pageHelper;
     }
 }

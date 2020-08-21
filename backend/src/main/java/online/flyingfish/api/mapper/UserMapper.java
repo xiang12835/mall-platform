@@ -14,18 +14,15 @@ import org.apache.ibatis.annotations.Select;
 @Mapper
 public interface UserMapper {
 
-    @Insert({"insert into user(id, name, email) values(#{id}, #{name}, #{email})"})
-    void addUser(User userInfo);
+    @Insert({"insert into usertable(id, name, email) values(#{id}, #{name}, #{email})"})
+    void addUser(User user);
 
-    @Delete("delete from user where id=#{id}")
+    @Delete("delete from usertable where id=#{id}")
     void delUserById(@Param("id") int id);
 
-    @Update("update user set name = #{name}, email = #{email} where id = #{id}")
+    @Update("update usertable set name = #{name}, email = #{email} where id = #{id}")
     void updateUserById(@Param("name") String name, @Param("email") String email, @Param("id") int id);
 
-    @Select("select * from user")
+    @Select("select * from usertable")
     List<User> getUser();
-
-    @Select("select name from user where no = #{id}")
-    String getUserName(@Param("id") int id);
 }

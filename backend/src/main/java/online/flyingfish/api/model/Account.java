@@ -1,72 +1,71 @@
 package online.flyingfish.api.model;
 
+import javax.xml.crypto.Data;
+import java.util.Date;
 import java.math.BigDecimal;
 import java.sql.Timestamp;
 
 public class Account {
-    //账户编号
-    private int accountId;
+    private int accId;   //对应数据库中字段表示为acc_id
 
-    //员工编号
-    private int empId;
+    private int userId;
 
-    //账户余额
-    private BigDecimal balance;
+    private BigDecimal accBalance;
 
-    //账户状态
-    private int status;
+    private int accStatus;
 
-    //账户创建时间
-    private Timestamp createTime;
+    private Timestamp accCreateTime;
 
-    //账户余额上次变动时间
-    private Timestamp changeTime;
+    private Timestamp accChangeTime;
 
-    public int getAccountId() {
-        return accountId;
+    public int getAcc_id() {     //get与set方法与response中的字段值结果对应
+        return accId;
     }
 
-    public void setAccountId(int accountId) {
-        this.accountId = accountId;
+    public void setAcc_id(int acc_id) {
+        this.accId = acc_id;
     }
 
-    public int getEmpId() {
-        return empId;
+    public int getUser_id() {
+        return userId;
     }
 
-    public void setEmpId(int empId) {
-        this.empId = empId;
+    public void setUser_id(int user_id) {
+        this.userId = user_id;
     }
 
-    public BigDecimal getBalance() {
-        return balance;
+    public BigDecimal getAcc_balance() {
+        return accBalance;
     }
 
-    public void setBalance(BigDecimal balance) {
-        this.balance = balance;
+    public void setAcc_balance(BigDecimal acc_balance) {
+        this.accBalance = acc_balance;
     }
 
-    public int getStatus() {
-        return status;
+    public int getAcc_status() {
+        return accStatus;
     }
 
-    public void setStatus(int status) {
-        this.status = status;
+    public void setAcc_status(int acc_status) {
+        this.accStatus = acc_status;
     }
 
-    public Timestamp getCreateTime() {
-        return createTime;
+    public Timestamp getAcc_create_time() {
+        return accCreateTime;
     }
 
-    public void setCreateTime(Timestamp createTime) {
-        this.createTime = createTime;
+    public void setAcc_create_time(Timestamp acc_create_time) {
+        this.accCreateTime = acc_create_time;
     }
 
-    public Timestamp getChangeTime() {
-        return changeTime;
+    public Timestamp getAcc_change_time() {
+        return accChangeTime;
     }
 
-    public void setChangeTime(Timestamp changeTime) {
-        this.changeTime = changeTime;
+    public void setAcc_change_time(Timestamp acc_change_time) {
+        this.accChangeTime = acc_change_time;
+    }
+
+    public Account() {
     }
 }

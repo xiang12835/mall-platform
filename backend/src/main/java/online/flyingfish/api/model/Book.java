@@ -6,7 +6,7 @@ public class Book {
 
     private String name;
 
-    private double bookPrice;
+    private float price;
 
     public int getId() {
         return id;
@@ -24,16 +24,11 @@ public class Book {
         this.name = name;
     }
 
-    public double getPrice() {
-        return bookPrice;
+    public float getPrice() {
+        return price;
     }
 
-    public void setPrice(double price) {
-        this.bookPrice = price;
-    }
-
-    @Override
-    public String toString() {
-        return "Book [BookId=" + id + ", BookName=" + name + ", BookPrice=" + bookPrice + "]";
+    public void setPrice(float price) {
+        this.price = price;
     }
 }

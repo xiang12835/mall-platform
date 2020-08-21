@@ -1,56 +1,51 @@
 package online.flyingfish.api.mapper;
 
 import online.flyingfish.api.model.Account;
-import online.flyingfish.api.model.AccountUser;
 import org.apache.ibatis.annotations.*;
 
 import java.math.BigDecimal;
 import java.sql.Timestamp;
+import java.util.Date;
 import java.util.List;
-
 
 @Mapper
 public interface AccountMapper {
 
-    @Select("select a.account_id, a.emp_id, e.emp_number, e.name, e.sex, e.position, e.level, e.role, a.balance, a.create_time, a.change_time from account a, employee e where a.emp_id = e.id and a.status = 0")
-    List<AccountUser> getAccountList();
+    @Select({"select * from acctable where user_id = #{user_id}"})
+    Account getAccountById(@Param("user_id")int user_id);
 
-    @Select("select " +
-            "sum(case extract(month from create_time) when extract(month from now()) then amount else 0 end) as monthTotal " +
-            "from  account_change " +
-            "where emp_id = #{empId} and operate = 1;")
-    BigDecimal getMonthTotalConsumption(Integer empId);
+    @Select({"select * from acctable order by acc_id"})
+    List<Account> getAccountAll();
 
-    @Select("select " +
-            "sum(case extract(year from create_time) when extract(year from now()) then amount else 0 end) as yearTotal\n" +
-            "from  account_change " +
-            "where emp_id = #{empId} and operate = 1;")
-    BigDecimal getYearTotalConsumption(Integer empId);
+    @Select({"select * from acctable where acc_status=0 order by acc_id"})
+    List<Account> getAccount();
 
-    @Select("select * from account where emp_id = #{empId}")
-    Account getAccount(int empId);
+    @Insert({"insert into acctable(acc_id, user_id, acc_balance, acc_status, acc_create_time, acc_change_time) values(#{acc_id}, #{user_id}, #{acc_balance}, #{acc_status}, #{acc_create_time}, #{acc_change_time})"})
+    void addAccount(Account account);
 
-    @Select({
-            "<script>" +
-                    "select * from account where emp_id in " +
-                    "<foreach item = 'item' index = 'index' collection = 'ids' open='(' separator=',' close=')'>" +
-                    "#{item}" +
-                    "</foreach>"+
-                    "order by emp_id asc"+
-                    "</script>"})
-    List<Account> getByEmpIds(@Param("ids") List<Integer> ids);
+    @Update("update acctable set acc_balance = (acc_balance + #{acc_balance}) where user_id = #{user_id} and acc_status=0")
+    void addAccountBalance(@Param("acc_balance") BigDecimal acc_balance, @Param("user_id") int user_id);
+
+    @Update("update acctable set acc_balance = #{acc_balance} where user_id = #{user_id} and acc_status=0")
+    void updateAccountById(@Param("acc_balance") BigDecimal acc_balance, @Param("user_id") int user_id);
 
 
-    @Update("update account set balance = #{balance}, change_time = #{changeTime} where emp_id = #{empId}")
-    void updateAccount(BigDecimal balance, int empId, Timestamp changeTime);
+    @Delete("update acctable set acc_status=1 where user_id = #{user_id}")
+    void delAccountById(@Param("user_id") int user_id);
 
-    @Update({"<script>" +
-            "<foreach collection = 'accounts' item ='item' index = 'index' separator=';'>" +
-            "update account " +
-            "set balance = #{item.balance}, change_time = #{item.changeTime} " +
-            "where emp_id = #{item.empId} " +
-            "</foreach>"+
-            "</script>"})
-    void batchUpdate(@Param("accounts") List<Account> accounts);
+    @Select("<script>" + "update acctable set acc_balance = (acc_balance + #{acc_balance}) " +
+            "where acc_status=0 and acc_id in" +
+            " <foreach collection='user_id' open='(' item='id' separator=',' close=')'> #{id} </foreach> "+
+            " </script>" )
+    void addAccountBalanceBatch(@Param("acc_balance") BigDecimal acc_balance, @Param("user_id") int[] user_id);
 
+    @Update("<script>" + "update acctable set acc_balance = #{acc_balance} where acc_status=0 and acc_id in"+
+            " <foreach collection='user_id' open='(' item='id' separator=',' close=')'> #{id} </foreach> "+
+            " </script>" )
+    void updateAccountByIdBatch(@Param("acc_balance") BigDecimal acc_balance, @Param("user_id") int[] user_id);
+
+    @Delete("<script>" + "update acctable set acc_status=1 where acc_status=0 and user_id in"+
+            " <foreach collection='user_id' open='(' item='id' separator=',' close=')'> #{id} </foreach> "+
+            " </script>")
+    void delAccountByIdBatch(@Param("user_id") int[] user_id);
 }

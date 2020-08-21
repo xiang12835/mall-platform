@@ -1,54 +1,68 @@
 package online.flyingfish.api.service.impl;
 
 import online.flyingfish.api.mapper.AccountMapper;
-import online.flyingfish.api.model.AccountUser;
 import online.flyingfish.api.model.Account;
 import online.flyingfish.api.service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
+import java.sql.Timestamp;
+import java.util.Date;
 import java.util.List;
 
 @Service
 public class AccountServiceImpl implements AccountService {
-
     @Autowired
     private AccountMapper accountMapper;
 
-
     @Override
-    public List<AccountUser> getAccountList() {
-        return accountMapper.getAccountList();
+    public Account getAccountById(int user_id) {
+        return accountMapper.getAccountById(user_id);
     }
 
     @Override
-    public BigDecimal getMonthTotalConsumption(Integer empId) {
-        return accountMapper.getMonthTotalConsumption(empId);
+    public List<Account> getAccountAll() {
+        return accountMapper.getAccountAll();
     }
 
     @Override
-    public BigDecimal getYearTotalConsumption(Integer empId) {
-        return accountMapper.getYearTotalConsumption(empId);
+    public List<Account> getAccount() {
+        return accountMapper.getAccount();
     }
 
     @Override
-    public Account getAccount(int empId){
-        return accountMapper.getAccount(empId);
+    public void addAccount(Account account) {
+        accountMapper.addAccount(account);
     }
 
     @Override
-    public List<Account> getAccountsByEmpIds(List<Integer> ids) {
-        return accountMapper.getByEmpIds(ids);
+    public void addAccountBalance(int user_id, BigDecimal acc_balance) {
+        accountMapper.addAccountBalance(acc_balance, user_id);
     }
 
     @Override
-    public void updateAccount(Account account) {
-        accountMapper.updateAccount(account.getBalance(),account.getEmpId(), account.getChangeTime());
+    public void updateAccountById(int user_id, BigDecimal acc_balance) {
+        accountMapper.updateAccountById(acc_balance, user_id);
     }
 
     @Override
-    public void batchUpdate(List<Account> accounts) {
-        accountMapper.batchUpdate(accounts);
+    public void delAccountById(int user_id) {
+        accountMapper.delAccountById(user_id);
+    }
+
+    @Override
+    public void addAccountBalanceBatch(int[] user_id, BigDecimal acc_balance) {
+        accountMapper.addAccountBalanceBatch(acc_balance, user_id);
+    }
+
+    @Override
+    public void updateAccountByIdBatch(int[] user_id, BigDecimal acc_balance) {
+        accountMapper.updateAccountByIdBatch(acc_balance, user_id);
+    }
+
+    @Override
+    public void delAccountByIdBatch(int[] user_id) {
+        accountMapper.delAccountByIdBatch(user_id);
     }
 }

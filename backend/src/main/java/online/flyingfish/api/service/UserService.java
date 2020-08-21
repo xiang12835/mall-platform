@@ -13,6 +13,4 @@ public interface UserService {
     void updateUserById(User user);
 
     List<User> getUser();
-
-    String getUserName(@Param("id") int id);
 }
