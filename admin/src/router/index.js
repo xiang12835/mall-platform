@@ -98,6 +98,12 @@ export const constantRoutes = [
         name: 'Calender',
         component: () => import('@/views/calender/index'),
         meta: { title: 'Calender', icon: 'form' }
+      },
+      {
+        path: 'multi_upload',
+        name: 'MultiUpload',
+        component: () => import('@/views/multi_upload/index'),
+        meta: { title: 'MultiUpload', icon: 'table' }
       }
     ]
   },
