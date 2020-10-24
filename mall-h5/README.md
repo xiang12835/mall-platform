@@ -130,3 +130,10 @@ newbee-mall 项目是一套电商系统，包括 newbee-mall 商城系统及 new
 - [better-scroll](https://github.com/ustbhuangyi/better-scroll)
 - [Vuex](https://github.com/vuejs/vuex)
 
+## setup
+
+npm install
+
+npm run serve
+
+http://localhost:8080/
