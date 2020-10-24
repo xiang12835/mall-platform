@@ -1,7 +1,7 @@
 # jiayou-platform
 
-## jiayou-web
-## jiayou-admin
-## jiayou-api
-## jiayou-h5
+## mall-web
+## mall-manage
+## mall-api
+## mall-h5
 ## jiayou-mini
