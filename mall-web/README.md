@@ -179,3 +179,7 @@ newbee-mall 项目是一套电商系统，包括 newbee-mall 商城系统及 new
 - [t4t5](https://github.com/t4t5/sweetalert)
 - [skytotwo](https://github.com/skytotwo/Alipay-WeChat-HTML)
 - [wangeditor-team](https://github.com/wangeditor-team/wangEditor)
+
+## setup
+
+http://localhost:28089/index
