@@ -15,7 +15,7 @@ Copyright (c) 2020 十三 all rights reserved.
     <artifactId>mall-admin</artifactId>
     <version>2.0.0-SNAPSHOT</version>
     <name>mall-admin</name>
-    <description>JIAYOU商城后台管理系统</description>
+    <description>JIAYOU 商城后台管理系统</description>
 
     <parent>
         <groupId>org.springframework.boot</groupId>

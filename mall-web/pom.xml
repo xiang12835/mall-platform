@@ -11,7 +11,7 @@
     <artifactId>mall-web</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <name>nmall-web</name>
-    <description>JIAYOU商城网站</description>
+    <description>JIAYOU 商城网站</description>
 
 
     <parent>
