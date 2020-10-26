@@ -183,3 +183,7 @@ newbee-mall 项目是一套电商系统，包括 newbee-mall 商城系统及 new
 ## setup
 
 http://localhost:28089/index
+
+## 参考
+
+https://www.mall4j.com/
